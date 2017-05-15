@@ -31,6 +31,8 @@ do
 	# GET number of containers from the ps command
 	arraylength=${#containernames[@]}
 
+	echo "${bold}Active containers${normal}:"
+
 	# DISPLAY options
 	for (( i=1; i<${arraylength}+1; i++ ));
 	do
@@ -38,7 +40,7 @@ do
 	done
 
 	# USER selects a container
-	read -p "> " SELECTION
+	read -p "Number > " SELECTION
 
 	# Handle docker-compose commands
 	case $SELECTION in
@@ -133,8 +135,9 @@ ${cyan}stop${reset}\t-\tStop container
 ${cyan}reset${reset}\t-\tReset container
 ${cyan}kill${reset}\t-\tKill container (rm as well)
 ${cyan}rm${reset}\t-\tRemove container
-${cyan}top${reset}\t-\tDocer top
-${yellow}CMD${reset}\t-\tType any linux command and have it executed within the container"
+${cyan}top${reset}\t-\tDocker top
+${yellow}CMD${reset}\t-\tType any linux command and have it executed within the container
+"
 				;;
 			none)
 				;;
